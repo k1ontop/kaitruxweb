@@ -3,248 +3,52 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Comandos</title>
-    <link rel="icon" href="kaitrux.png" type="image/png">
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <style>
-        body { background: linear-gradient(to bottom, #1e3a8a, #1e40af); }
-        input[type="text"] {
-            background-color: #1e3a8a;
-            color: white;
-            border: 1px solid #3b82f6;
-        }
-        input[type="text"]::placeholder {
-            color: #a0aec0;
-        }
-    </style>
-    <script>
-        function searchCommands() {
-            const input = document.getElementById('searchInput').value.toLowerCase();
-            const commands = document.querySelectorAll('.command-item');
-            commands.forEach(command => {
-                const text = command.textContent.toLowerCase();
-                command.style.display = text.includes(input) ? '' : 'none';
-            });
-        }
-
-        function toggleDescription(id) {
-            const description = document.getElementById(id);
-            description.style.display = description.style.display === 'none' ? 'block' : 'none';
-        }
-    </script>
+    <title>Lista de Comandos</title>
 </head>
-<body class="text-white font-sans">
-    <header class="py-6 bg-blue-800 bg-opacity-90 fixed w-full top-0 shadow-lg">
-        <div class="container mx-auto flex justify-between items-center px-6">
-            <div class="flex items-center space-x-2">
-                <img src="kaitrux.png" alt="Kaitrux" class="w-8 h-8 object-contain">
-                <a href="index.html" class="text-3xl font-bold hover:text-blue-300">Kaitrux</a>
-            </div>
-            <nav>
-                <ul class="flex space-x-6">
-                    <li><a href="index.html" class="hover:text-blue-300">Inicio</a></li>
-                    <li><a href="comandos.html" class="hover:text-blue-300">Comandos</a></li>
-                    <li><a href="#" class="hover:text-blue-300">Contacto</a></li>
-                </ul>
-            </nav>
-        </div>
-    </header>
-
-    <main class="pt-24 px-6">
-        <div class="container mx-auto">
-            <h2 class="text-4xl font-bold mb-6">Lista de Comandos</h2>
-            <input type="text" id="searchInput" onkeyup="searchCommands()" placeholder="Buscar comandos..." class="w-full p-2 mb-6 rounded">
-            <ul class="space-y-4">
-                <li class="command-item">
-                    <button onclick="toggleDescription('desc-unblock')" class="w-full text-left"><strong>unblock:</strong> Desbloquea a un usuario.</button>
-                    <div id="desc-unblock" class="pl-4" style="display: none;">
-                        <p><strong>Descripción:</strong> Desbloquea a un usuario.</p>
-                        <p><strong>Uso:</strong> !unblock @usuario</p>
-                    </div>
-                </li>
-                <li class="command-item">
-                    <button onclick="toggleDescription('desc-unmute')" class="w-full text-left"><strong>unmute:</strong> Quita el silencio a un usuario.</button>
-                    <div id="desc-unmute" class="pl-4" style="display: none;">
-                        <p><strong>Descripción:</strong> Quita el silencio a un usuario.</p>
-                        <p><strong>Uso:</strong> !unmute @usuario</p>
-                    </div>
-                </li>
-                <li class="command-item">
-                    <button onclick="toggleDescription('desc-unwarn')" class="w-full text-left"><strong>unwarn:</strong> Quita una advertencia a un usuario.</button>
-                    <div id="desc-unwarn" class="pl-4" style="display: none;">
-                        <p><strong>Descripción:</strong> Quita una advertencia a un usuario.</p>
-                        <p><strong>Uso:</strong> !unwarn @usuario</p>
-                    </div>
-                </li>
-                <li class="command-item">
-                    <button onclick="toggleDescription('desc-warn')" class="w-full text-left"><strong>warn:</strong> Advierte a un usuario.</button>
-                    <div id="desc-warn" class="pl-4" style="display: none;">
-                        <p><strong>Descripción:</strong> Advierte a un usuario.</p>
-                        <p><strong>Uso:</strong> !warn @usuario razón</p>
-                    </div>
-                </li>
-                <li class="command-item">
-                    <button onclick="toggleDescription('desc-activate')" class="w-full text-left"><strong>activate:</strong> Activa una función.</button>
-                    <div id="desc-activate" class="pl-4" style="display: none;">
-                        <p><strong>Descripción:</strong> Activa una función.</p>
-                        <p><strong>Uso:</strong> !activate función</p>
-                    </div>
-                </li>
-                <li class="command-item">
-                    <button onclick="toggleDescription('desc-blacklistword')" class="w-full text-left"><strong>blacklistword:</strong> Añade una palabra a la lista negra.</button>
-                    <div id="desc-blacklistword" class="pl-4" style="display: none;">
-                        <p><strong>Descripción:</strong> Añade una palabra a la lista negra.</p>
-                        <p><strong>Uso:</strong> !blacklistword palabra</p>
-                    </div>
-                </li>
-                <li class="command-item">
-                    <button onclick="toggleDescription('desc-keygen')" class="w-full text-left"><strong>keygen:</strong> Genera una clave.</button>
-                    <div id="desc-keygen" class="pl-4" style="display: none;">
-                        <p><strong>Descripción:</strong> Genera una clave.</p>
-                        <p><strong>Uso:</strong> !keygen</p>
-                    </div>
-                </li>
-                <li class="command-item">
-                    <button onclick="toggleDescription('desc-test')" class="w-full text-left"><strong>test:</strong> Realiza una prueba.</button>
-                    <div id="desc-test" class="pl-4" style="display: none;">
-                        <p><strong>Descripción:</strong> Realiza una prueba.</p>
-                        <p><strong>Uso:</strong> !test</p>
-                    </div>
-                </li>
-                <li class="command-item">
-                    <button onclick="toggleDescription('desc-aceptar')" class="w-full text-left"><strong>aceptar:</strong> Acepta una solicitud.</button>
-                    <div id="desc-aceptar" class="pl-4" style="display: none;">
-                        <p><strong>Descripción:</strong> Acepta una solicitud.</p>
-                        <p><strong>Uso:</strong> !aceptar</p>
-                    </div>
-                </li>
-                <li class="command-item">
-                    <button onclick="toggleDescription('desc-divorciar')" class="w-full text-left"><strong>divorciar:</strong> Divorcia a dos usuarios.</button>
-                    <div id="desc-divorciar" class="pl-4" style="display: none;">
-                        <p><strong>Descripción:</strong> Divorcia a dos usuarios.</p>
-                        <p><strong>Uso:</strong> !divorciar @usuario</p>
-                    </div>
-                </li>
-                <li class="command-item">
-                    <button onclick="toggleDescription('desc-marry')" class="w-full text-left"><strong>marry:</strong> Casa a dos usuarios.</button>
-                    <div id="desc-marry" class="pl-4" style="display: none;">
-                        <p><strong>Descripción:</strong> Casa a dos usuarios.</p>
-                        <p><strong>Uso:</strong> !marry @usuario</p>
-                    </div>
-                </li>
-                <li class="command-item">
-                    <button onclick="toggleDescription('desc-rechazar')" class="w-full text-left"><strong>rechazar:</strong> Rechaza una solicitud.</button>
-                    <div id="desc-rechazar" class="pl-4" style="display: none;">
-                        <p><strong>Descripción:</strong> Rechaza una solicitud.</p>
-                        <p><strong>Uso:</strong> !rechazar</p>
-                    </div>
-                </li>
-                <li class="command-item">
-                    <button onclick="toggleDescription('desc-antilink')" class="w-full text-left"><strong>antilink:</strong> Bloquea enlaces.</button>
-                    <div id="desc-antilink" class="pl-4" style="display: none;">
-                        <p><strong>Descripción:</strong> Bloquea enlaces.</p>
-                        <p><strong>Uso:</strong> !antilink</p>
-                    </div>
-                </li>
-                <li class="command-item">
-                    <button onclick="toggleDescription('desc-bank')" class="w-full text-left"><strong>bank:</strong> Muestra información del banco.</button>
-                    <div id="desc-bank" class="pl-4" style="display: none;">
-                        <p><strong>Descripción:</strong> Muestra información del banco.</p>
-                        <p><strong>Uso:</strong> !bank</p>
-                    </div>
-                </li>
-                <li class="command-item">
-                    <button onclick="toggleDescription('desc-daily')" class="w-full text-left"><strong>daily:</strong> Recompensa diaria.</button>
-                    <div id="desc-daily" class="pl-4" style="display: none;">
-                        <p><strong>Descripción:</strong> Recompensa diaria.</p>
-                        <p><strong>Uso:</strong> !daily</p>
-                    </div>
-                </li>
-                <li class="command-item">
-                    <button onclick="toggleDescription('desc-embed')" class="w-full text-left"><strong>embed:</strong> Crea un mensaje embed.</button>
-                    <div id="desc-embed" class="pl-4" style="display: none;">
-                        <p><strong>Descripción:</strong> Crea un mensaje embed.</p>
-                        <p><strong>Uso:</strong> !embed</p>
-                    </div>
-                </li>
-                <li class="command-item">
-                    <button onclick="toggleDescription('desc-findreport')" class="w-full text-left"><strong>findreport:</strong> Encuentra un reporte.</button>
-                    <div id="desc-findreport" class="pl-4" style="display: none;">
-                        <p><strong>Descripción:</strong> Encuentra un reporte.</p>
-                        <p><strong>Uso:</strong> !findreport</p>
-                    </div>
-                </li>
-                <li class="command-item">
-                    <button onclick="toggleDescription('desc-ping')" class="w-full text-left"><strong>ping:</strong> Muestra el ping del bot.</button>
-                    <div id="desc-ping" class="pl-4" style="display: none;">
-                        <p><strong>Descripción:</strong> Muestra el ping del bot.</p>
-                        <p><strong>Uso:</strong> !ping</p>
-                    </div>
-                </li>
-                <li class="command-item">
-                    <button onclick="toggleDescription('desc-play')" class="w-full text-left"><strong>play:</strong> Reproduce una canción.</button>
-                    <div id="desc-play" class="pl-4" style="display: none;">
-                        <p><strong>Descripción:</strong> Reproduce una canción.</p>
-                        <p><strong>Uso:</strong> !play nombre_de_la_canción</p>
-                    </div>
-                </li>
-                <li class="command-item">
-                    <button onclick="toggleDescription('desc-profile')" class="w-full text-left"><strong>profile:</strong> Muestra el perfil de un usuario.</button>
-                    <div id="desc-profile" class="pl-4" style="display: none;">
-                        <p><strong>Descripción:</strong> Muestra el perfil de un usuario.</p>
-                        <p><strong>Uso:</strong> !profile @usuario</p>
-                    </div>
-                </li>
-                <li class="command-item">
-                    <button onclick="toggleDescription('desc-report')" class="w-full text-left"><strong>report:</strong> Reporta a un usuario.</button>
-                    <div id="desc-report" class="pl-4" style="display: none;">
-                        <p><strong>Descripción:</strong> Reporta a un usuario.</p>
-                        <p><strong>Uso:</strong> !report @usuario razón</p>
-                    </div>
-                </li>
-                <li class="command-item">
-                    <button onclick="toggleDescription('desc-serverinfo')" class="w-full text-left"><strong>serverinfo:</strong> Muestra información del servidor.</button>
-                    <div id="desc-serverinfo" class="pl-4" style="display: none;">
-                        <p><strong>Descripción:</strong> Muestra información del servidor.</p>
-                        <p><strong>Uso:</strong> !serverinfo</p>
-                    </div>
-                </li>
-                <li class="command-item">
-                    <button onclick="toggleDescription('desc-setphrase')" class="w-full text-left"><strong>setphrase:</strong> Establece una frase.</button>
-                    <div id="desc-setphrase" class="pl-4" style="display: none;">
-                        <p><strong>Descripción:</strong> Establece una frase.</p>
-                        <p><strong>Uso:</strong> !setphrase frase</p>
-                    </div>
-                </li>
-                <li class="command-item">
-                    <button onclick="toggleDescription('desc-tos')" class="w-full text-left"><strong>tos:</strong> Muestra los términos de servicio.</button>
-                    <div id="desc-tos" class="pl-4" style="display: none;">
-                        <p><strong>Descripción:</strong> Muestra los términos de servicio.</p>
-                        <p><strong>Uso:</strong> !tos</p>
-                    </div>
-                </li>
-                <li class="command-item">
-                    <button onclick="toggleDescription('desc-trabajar')" class="w-full text-left"><strong>trabajar:</strong> Realiza un trabajo.</button>
-                    <div id="desc-trabajar" class="pl-4" style="display: none;">
-                        <p><strong>Descripción:</strong> Realiza un trabajo.</p>
-                        <p><strong>Uso:</strong> !trabajar</p>
-                    </div>
-                </li>
-                <li class="command-item">
-                    <button onclick="toggleDescription('desc-userinfo')" class="w-full text-left"><strong>userinfo:</strong> Muestra información de un usuario.</button>
-                    <div id="desc-userinfo" class="pl-4" style="display: none;">
-                        <p><strong>Descripción:</strong> Muestra información de un usuario.</p>
-                        <p><strong>Uso:</strong> !userinfo @usuario</p>
-                    </div>
-                </li>
-                <!-- Agrega más comandos aquí siguiendo el mismo formato -->
-            </ul>
-        </div>
-    </main>
-    
-    <footer class="py-6 text-center bg-blue-800 bg-opacity-90 mt-6">
-        <p>&copy; 2025 Kaitrux. Todos los derechos reservados.</p>
-    </footer>
+<body>
+    <h1>Lista de Comandos</h1>
+    <ul>
+        <li><strong>clap</strong>: Aplaude con entusiasmo. <em>Uso: !clap</em></li>
+        <li><strong>cooking</strong>: Simula estar cocinando. <em>Uso: !cooking</em></li>
+        <li><strong>dance</strong>: Baila con ritmo. <em>Uso: !dance</em></li>
+        <li><strong>drink</strong>: Bebe algo refrescante. <em>Uso: !drink</em></li>
+        <li><strong>facedesk</strong>: Muestra frustración golpeando la mesa con la cabeza. <em>Uso: !facedesk</em></li>
+        <li><strong>nya</strong>: Hace un sonido de gato tierno. <em>Uso: !nya</em></li>
+        <li><strong>run</strong>: Simula correr. <em>Uso: !run</em></li>
+        <li><strong>salute</strong>: Da un saludo respetuoso. <em>Uso: !salute</em></li>
+        <li><strong>shower</strong>: Simula estar en la ducha. <em>Uso: !shower</em></li>
+        <li><strong>sing</strong>: Canta una canción. <em>Uso: !sing</em></li>
+        <li><strong>sipcoffe</strong>: Toma un sorbo de café. <em>Uso: !sipcoffe</em></li>
+        <li><strong>sipjuice</strong>: Toma un sorbo de jugo. <em>Uso: !sipjuice</em></li>
+        <li><strong>sleepsolo</strong>: Se acuesta a dormir solo. <em>Uso: !sleepsolo</em></li>
+        <li><strong>smile</strong>: Muestra una sonrisa amigable. <em>Uso: !smile</em></li>
+        <li><strong>smoke</strong>: Simula fumar. <em>Uso: !smoke</em></li>
+        <li><strong>buy</strong>: Compra un artículo en la tienda. <em>Uso: !buy [artículo]</em></li>
+        <li><strong>crime</strong>: Intenta cometer un crimen para ganar dinero (puede fallar). <em>Uso: !crime</em></li>
+        <li><strong>doublecoins</strong>: Duplica tus monedas temporalmente. <em>Uso: !doublecoins</em></li>
+        <li><strong>inventory</strong>: Muestra tu inventario de objetos. <em>Uso: !inventory</em></li>
+        <li><strong>shop</strong>: Muestra la tienda disponible. <em>Uso: !shop</em></li>
+        <li><strong>work</strong>: Trabaja para ganar monedas. <em>Uso: !work</em></li>
+        <li><strong>8ball</strong>: Responde preguntas con respuestas aleatorias. <em>Uso: !8ball [pregunta]</em></li>
+        <li><strong>hungrywars</strong>: - <em>Uso: !hungrywars</em></li>
+        <li><strong>snake</strong>: - <em>Uso: !snake</em></li>
+        <li><strong>tictactoe</strong>: Juega al tres en raya con un amigo. <em>Uso: !tictactoe @usuario</em></li>
+        <li><strong>trivia</strong>: Responde preguntas de trivia para ganar puntos. <em>Uso: !trivia</em></li>
+        <li><strong>amigos</strong>: - <em>Uso: !amigos</em></li>
+        <li><strong>findbug</strong>: - <em>Uso: !findbug</em></li>
+        <li><strong>getPrefix</strong>: - <em>Uso: !getPrefix</em></li>
+        <li><strong>listgames</strong>: - <em>Uso: !listgames</em></li>
+        <li><strong>pp</strong>: - <em>Uso: !pp</em></li>
+        <li><strong>setprefix</strong>: Cambia el prefijo del bot. <em>Uso: !setprefix [nuevo prefijo]</em></li>
+        <li><strong>backupserver</strong>: Realiza un backup completo del servidor. <em>Uso: !backupserver</em></li>
+        <li><strong>restoreserver</strong>: Restaura un backup del servidor. <em>Uso: !restoreserver</em></li>
+        <li><strong>embed</strong>: Crea un embed personalizado. <em>Uso: !embed [título] [descripción]</em></li>
+        <li><strong>vote</strong>: Muestra información para votar por el bot. <em>Uso: !vote</em></li>
+        <li><strong>lock</strong>: Bloquea un canal. <em>Uso: !lock [#canal]</em></li>
+        <li><strong>purge</strong>: Elimina mensajes masivamente. <em>Uso: !purge [número]</em></li>
+        <li><strong>whitelist</strong>: Agrega o elimina usuarios de la lista blanca. <em>Uso: !whitelist [@usuario]</em></li>
+        <li><strong>achievement</strong>: Genera un logro estilo Minecraft. <em>Uso: !achievement [texto]</em></li>
+        <li><strong>staffonline</strong>: Muestra qué miembros del staff están en línea. <em>Uso: !staffonline</em></li>
+    </ul>
 </body>
 </html>
